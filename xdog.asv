@@ -1,0 +1,19 @@
+image = imread('./testImages/tigre.png');
+k = 10;
+sigma1 =  0.5;
+sigma2 = sigma1*k;
+
+hsize = [5,5];
+imgray = im2gray(image)
+figure(1);
+subplot(1,2,1);
+imhist(imgray)
+h1 = fspecial('gaussian', hsize, sigma1);
+h2 = fspecial('gaussian', hsize, sigma2);
+
+gauss1 = imfilter(imgray,h1,'replicate');
+gauss2 = imfilter(imgray,h2,'replicate');
+
+dogImg = gauss1 - gauss2;
+figure(2)
+imshow(dogImg)
