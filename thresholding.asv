@@ -1,0 +1,11 @@
+function [imageThresh] = thresholding(image)
+[n,m] = size(image);
+theshholdingImage = zeros(n,m);
+    for i = 0:n
+        for j = 0:m
+            theshholdingImage(i,j) = image(i,j);
+        end
+    end
+    imageThresh=
+end
+

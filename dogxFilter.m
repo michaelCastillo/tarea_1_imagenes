@@ -1,6 +1,5 @@
-function [imageWithDog] = dogFilter(imageName,sigma,k,kernelSize)
+function [imageWithDog] = dogFilter(image,sigma,k,kernelSize,t)
 
-image = imread(imageName);
 imgray = im2gray(image);
 h1 = fspecial('gaussian', kernelSize, sigma);
 h2 = fspecial('gaussian', kernelSize, sigma*k);
@@ -11,6 +10,6 @@ gauss2 =conv2(double(imgray), h2, 'same');
 % plot(imhist(gauss1))
 % subplot(1,2,2);
 % plot(imhist(gauss2))
-imageWithDog = gauss1 - gauss2;
+imageWithDog = gauss1 - t*gauss2;
 end
 

@@ -1,0 +1,15 @@
+function [theshholdingImage] = exThreshold(image,e,y)
+[n,m] = size(image);
+theshholdingImage = zeros(n,m);
+    for i = 1:n
+        for j = 1:m
+            if image(i,j) < e
+                theshholdingImage(i,j) = 1;
+            else
+                theshholdingImage(i,j) = 0;
+            end
+            
+        end
+    end
+end
+
